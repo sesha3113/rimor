@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
+import 'package:rimor/QVLogin.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -42,9 +43,25 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Rimor"),
-      ),
+      // ignore: unnecessary_new
+      appBar: new AppBar(
+          title: new Text(
+            "Rimor",
+            style: TextStyle(color: Colors.green),
+          ),
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          excludeHeaderSemantics: true,
+          actions: [
+            IconButton(
+              icon: Icon(Icons.account_circle_outlined),
+              color: Colors.green,
+              onPressed: () {
+                Navigator.push(context,
+                    new MaterialPageRoute(builder: (context) => QVLogin()));
+              },
+            ),
+          ]),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
